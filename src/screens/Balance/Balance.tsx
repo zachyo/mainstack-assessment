@@ -5,6 +5,8 @@ import { FilterOptionsSection } from "./sections/FilterOptionsSection";
 import { NavigationBarSection } from "./sections/NavigationBarSection";
 import { RevenueSummarySection } from "./sections/RevenueSummarySection";
 import { TransactionListSection } from "./sections/TransactionListSection";
+import { ChartSection } from "./sections/ChartSection";
+import { BalanceSummarySection } from "./sections/BalanceSummarySection";
 import { FilterModal } from "../../components/FilterModal";
 
 const navigationIcons = [
@@ -51,17 +53,18 @@ export const Balance = (): JSX.Element => {
       <main className="flex-1 flex flex-col w-full">
         <NavigationBarSection />
 
-        <div className="flex flex-1 gap-4 p-4">
-          <div className="flex flex-col gap-4 flex-1">
-            <BalanceOverviewSection />
-            <FilterOptionsSection onOpenFilter={() => setIsFilterModalOpen(true)} />
-            <RevenueSummarySection />
-            <ExportOptionsSection />
+        <div className="flex flex-col gap-6 p-6">
+          <BalanceOverviewSection />
+
+          <div className="flex gap-6">
+            <ChartSection />
+            <BalanceSummarySection />
           </div>
 
-          <div className="flex-shrink-0">
-            <TransactionListSection />
-          </div>
+          <FilterOptionsSection onOpenFilter={() => setIsFilterModalOpen(true)} />
+          <RevenueSummarySection />
+          <ExportOptionsSection />
+          <TransactionListSection />
         </div>
       </main>
 
