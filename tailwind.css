@@ -1,0 +1,263 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --app-bar: 0px 6px 12px 0px rgba(92, 115, 131, 0.08), 0px 4px 8px 0px
+    rgba(92, 115, 131, 0.08);
+  --black300-default: rgba(19, 19, 22, 1);
+  --degular-headers-3x-small-font-family: "Degular", Helvetica;
+  --degular-headers-3x-small-font-size: 24px;
+  --degular-headers-3x-small-font-style: normal;
+  --degular-headers-3x-small-font-weight: 700;
+  --degular-headers-3x-small-letter-spacing: -0.6000000238418579px;
+  --degular-headers-3x-small-line-height: 32px;
+  --degular-headers-small-font-family: "Degular", Helvetica;
+  --degular-headers-small-font-size: 36px;
+  --degular-headers-small-font-style: normal;
+  --degular-headers-small-font-weight: 700;
+  --degular-headers-small-letter-spacing: -1.5px;
+  --degular-headers-small-line-height: 48px;
+  --degular-headers-XX-small-font-family: "Degular", Helvetica;
+  --degular-headers-XX-small-font-size: 28px;
+  --degular-headers-XX-small-font-style: normal;
+  --degular-headers-XX-small-font-weight: 700;
+  --degular-headers-XX-small-letter-spacing: -0.600000023841858px;
+  --degular-headers-XX-small-line-height: 38px;
+  --degular-paragraph-x-small-font-family: "Degular", Helvetica;
+  --degular-paragraph-x-small-font-size: 16px;
+  --degular-paragraph-x-small-font-style: normal;
+  --degular-paragraph-x-small-font-weight: 500;
+  --degular-paragraph-x-small-letter-spacing: -0.20000000298023224px;
+  --degular-paragraph-x-small-line-height: 24px;
+  --degular-paragraph-XX-small-font-family: "Degular", Helvetica;
+  --degular-paragraph-XX-small-font-size: 14px;
+  --degular-paragraph-XX-small-font-style: normal;
+  --degular-paragraph-XX-small-font-weight: 500;
+  --degular-paragraph-XX-small-letter-spacing: -0.10000000149011612px;
+  --degular-paragraph-XX-small-line-height: 140%;
+  --degular-subtitle-6x-small-font-family: "Degular", Helvetica;
+  --degular-subtitle-6x-small-font-size: 16px;
+  --degular-subtitle-6x-small-font-style: normal;
+  --degular-subtitle-6x-small-font-weight: 400;
+  --degular-subtitle-6x-small-letter-spacing: -0.4000000059604645px;
+  --degular-subtitle-6x-small-line-height: 24px;
+  --degular-subtitle-7x-small-font-family: "Degular", Helvetica;
+  --degular-subtitle-7x-small-font-size: 14px;
+  --degular-subtitle-7x-small-font-style: normal;
+  --degular-subtitle-7x-small-font-weight: 400;
+  --degular-subtitle-7x-small-letter-spacing: -0.4000000059604645px;
+  --degular-subtitle-7x-small-line-height: 16px;
+  --elevation-light-mode-100: 0px 2px 4px 0px rgba(45, 59, 67, 0.05), 0px 2px
+    6px 0px rgba(45, 59, 67, 0.06);
+  --red-100: rgba(249, 227, 224, 1);
+  --red-400: rgba(150, 17, 0, 1);
+  --shake-black100: rgba(0, 0, 4, 1);
+  --shake-blue75: rgba(51, 163, 253, 1);
+  --shake-white100: rgba(255, 255, 255, 1);
+  --trashed-colorsgray0: rgba(239, 241, 246, 1);
+  --trashed-colorsgray100: rgba(219, 222, 229, 1);
+  --trashed-colorsgray400: rgba(86, 97, 107, 1);
+  --trashed-colorsjade100: rgba(227, 252, 242, 1);
+  --trashed-colorsjade400: rgba(14, 161, 99, 1);
+  --trashed-colorsjade500: rgba(7, 81, 50, 1);
+  --trashed-colorsorange300-default: rgba(255, 84, 3, 1);
+  --trashed-colorswhite100: rgba(255, 255, 255, 1);
+  --trashed-colorswhite80: rgba(255, 255, 255, 1);
+  --yellow-400: rgba(167, 122, 7, 1);
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
