@@ -190,7 +190,7 @@ export function FilterModal({ open, onOpenChange, onApply }: FilterModalProps) {
                     : "border-slate-200 bg-slate-50"
                 )}
               >
-                <span className="truncate">
+                <span className="truncate w-full">
                   {selectedTypes.length === 0
                     ? "Select transaction types"
                     : selectedTypes.join(", ")}
