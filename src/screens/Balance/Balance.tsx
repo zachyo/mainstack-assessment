@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { BalanceOverviewSection } from "./sections/BalanceOverviewSection";
 import { ExportOptionsSection } from "./sections/ExportOptionsSection";
 import { FilterOptionsSection } from "./sections/FilterOptionsSection";
 import { NavigationBarSection } from "./sections/NavigationBarSection";
 import { RevenueSummarySection } from "./sections/RevenueSummarySection";
 import { TransactionListSection } from "./sections/TransactionListSection";
+import { FilterModal } from "../../components/FilterModal";
 
 const navigationIcons = [
   {
@@ -26,6 +27,12 @@ const navigationIcons = [
 ];
 
 export const Balance = (): JSX.Element => {
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+
+  const handleFilterApply = (filters: any) => {
+    console.log("Applied filters:", filters);
+  };
+
   return (
     <div className="relative w-full bg-trashed-colorswhite80 flex">
       <aside className="flex flex-col items-start gap-1 p-1 fixed top-[310px] left-4 bg-white rounded-[100px] shadow-app-bar z-10">
@@ -47,7 +54,7 @@ export const Balance = (): JSX.Element => {
         <div className="flex flex-1 gap-4 p-4">
           <div className="flex flex-col gap-4 flex-1">
             <BalanceOverviewSection />
-            <FilterOptionsSection />
+            <FilterOptionsSection onOpenFilter={() => setIsFilterModalOpen(true)} />
             <RevenueSummarySection />
             <ExportOptionsSection />
           </div>
@@ -57,6 +64,12 @@ export const Balance = (): JSX.Element => {
           </div>
         </div>
       </main>
+
+      <FilterModal
+        open={isFilterModalOpen}
+        onOpenChange={setIsFilterModalOpen}
+        onApply={handleFilterApply}
+      />
     </div>
   );
 };
