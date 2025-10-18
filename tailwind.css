@@ -1,5 +1,41 @@
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Degular';
+  src: url('/fonts/Degular-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Degular';
+  src: url('/fonts/Degular-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Degular';
+  src: url('/fonts/Degular-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Degular';
+  src: url('/fonts/Degular-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Degular Display';
+  src: url('/fonts/Degular-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
 
 @layer components {
   .all-\[unset\] {
@@ -179,9 +215,6 @@
   }
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   :root {

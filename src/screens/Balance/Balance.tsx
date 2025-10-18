@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BalanceOverviewSection } from "./sections/BalanceOverviewSection";
 import { ExportOptionsSection } from "./sections/ExportOptionsSection";
-import { FilterOptionsSection } from "./sections/FilterOptionsSection";
 import { NavigationBarSection } from "./sections/NavigationBarSection";
 import { RevenueSummarySection } from "./sections/RevenueSummarySection";
 import { TransactionListSection } from "./sections/TransactionListSection";
@@ -42,9 +41,13 @@ export const Balance = (): JSX.Element => {
           {navigationIcons.map((icon, index) => (
             <button
               key={index}
-              className="inline-flex items-start gap-1 p-2 relative flex-[0_0_auto] rounded-[100px] hover:bg-trashed-colorsgray0 transition-colors"
+              className="inline-flex items-start gap-1 p-2 relative flex-[0_0_auto] rounded-[100px] hover:bg-trashed-colorsgray0 transition-all group"
             >
-              <img className="relative w-6 h-6" alt={icon.alt} src={icon.src} />
+              <img 
+                className="relative w-6 h-6 grayscale group-hover:grayscale-0 transition-all" 
+                alt={icon.alt} 
+                src={icon.src} 
+              />
             </button>
           ))}
         </div>
@@ -61,8 +64,7 @@ export const Balance = (): JSX.Element => {
             <BalanceSummarySection />
           </div>
 
-          <FilterOptionsSection onOpenFilter={() => setIsFilterModalOpen(true)} />
-          <RevenueSummarySection />
+          <RevenueSummarySection onOpenFilter={() => setIsFilterModalOpen(true)} />
           <ExportOptionsSection />
           <TransactionListSection />
         </div>

@@ -94,7 +94,7 @@ export function FilterModal({ open, onOpenChange, onApply }: FilterModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[465px] p-0 gap-0">
+      <DialogContent className="fixed right-6 top-6 left-auto translate-x-0 translate-y-0 w-[456px] max-w-[456px] p-0 gap-0 data-[state=open]:slide-in-from-top-2 data-[state=open]:slide-in-from-right-2 data-[state=closed]:slide-out-to-top-2 data-[state=closed]:slide-out-to-right-2">
         <DialogHeader className="px-6 pt-6 pb-4">
           <DialogTitle className="text-2xl font-bold">Filter</DialogTitle>
         </DialogHeader>
@@ -130,20 +130,6 @@ export function FilterModal({ open, onOpenChange, onApply }: FilterModalProps) {
                   {format(dateRange.from, "dd MMM yyyy")}
                   <ChevronUp className={cn("h-4 w-4 transition-transform", !showStartCalendar && "rotate-180")} />
                 </button>
-                {showStartCalendar && (
-                  <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-slate-200 z-10">
-                    <Calendar
-                      mode="single"
-                      selected={dateRange.from}
-                      onSelect={(date) => {
-                        if (date) {
-                          setDateRange({ ...dateRange, from: date })
-                          setShowStartCalendar(false)
-                        }
-                      }}
-                    />
-                  </div>
-                )}
               </div>
 
               <div className="relative">
@@ -157,22 +143,29 @@ export function FilterModal({ open, onOpenChange, onApply }: FilterModalProps) {
                   {format(dateRange.to, "dd MMM yyyy")}
                   <ChevronDown className="h-4 w-4" />
                 </button>
-                {showEndCalendar && (
-                  <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-lg border border-slate-200 z-10">
-                    <Calendar
-                      mode="single"
-                      selected={dateRange.to}
-                      onSelect={(date) => {
-                        if (date) {
-                          setDateRange({ ...dateRange, to: date })
-                          setShowEndCalendar(false)
-                        }
-                      }}
-                    />
-                  </div>
-                )}
               </div>
             </div>
+            
+            {(showStartCalendar || showEndCalendar) && (
+              <div className="mt-4 bg-white rounded-lg border border-slate-200 p-4">
+                <Calendar
+                  mode="single"
+                  selected={showStartCalendar ? dateRange.from : dateRange.to}
+                  onSelect={(date) => {
+                    if (date) {
+                      if (showStartCalendar) {
+                        setDateRange({ ...dateRange, from: date })
+                        setShowStartCalendar(false)
+                      } else {
+                        setDateRange({ ...dateRange, to: date })
+                        setShowEndCalendar(false)
+                      }
+                    }
+                  }}
+                  className="w-full"
+                />
+              </div>
+            )}
           </div>
 
           <div>
