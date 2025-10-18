@@ -1,33 +1,72 @@
 import React from "react";
+import { useAppData } from "../../../../context/AppDataContext";
+import type { Transaction } from "../../../../types/api";
+import { formatDateLabel } from "../../../../lib/format";
 
-const transactions = [
-  {
-    icon: "/call-received-2.svg",
-    title: "Psychology of Money and 2 other products",
-    customer: "Dominic Dan",
-    amount: "USD 600",
-    date: "Apr 03,2022",
-  },
-  {
-    icon: "/call-received-1.svg",
-    title: "How to build an online brand",
-    customer: "Delvan Ludacris",
-    amount: "USD 100",
-    date: "Apr 02,2022",
-  },
-  {
-    icon: "/call-received.svg",
-    title: "Learn how to pitch your idea and 4 other products",
-    customer: "Dujon Jericho",
-    amount: "USD 500",
-    date: "Apr 02,2022",
-  },
-];
+function toStartCase(input: string): string {
+  return input
+    .replace(/_/g, " ")
+    .split(" ")
+    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : ""))
+    .join(" ")
+    .trim();
+}
+
+function formatUSD(amount: number): string {
+  const hasFraction = Math.round(amount * 100) % 100 !== 0;
+  const formatted = amount.toLocaleString("en-US", {
+    minimumFractionDigits: hasFraction ? 2 : 0,
+    maximumFractionDigits: hasFraction ? 2 : 0,
+  });
+  return `USD ${formatted}`;
+}
+
+function mapTransaction(tx: Transaction) {
+  const isWithdrawal = tx.type === "withdrawal";
+  const typeUi = isWithdrawal
+    ? "withdrawal"
+    : tx.status === "pending"
+    ? "pending"
+    : "success";
+
+  const icon =
+    typeUi === "withdrawal"
+      ? "/call-received-1.svg"
+      : typeUi === "pending"
+      ? "/call-received-2.svg"
+      : "/call-received.svg";
+
+  const title = isWithdrawal
+    ? "Cash withdrawal"
+    : tx.metadata?.product_name
+    ? tx.metadata.product_name
+    : tx.metadata?.type === "coffee"
+    ? "Buy me a coffee"
+    : tx.metadata?.type
+    ? toStartCase(tx.metadata.type)
+    : "Payment";
+
+  const customer = tx.metadata?.name ?? tx.metadata?.email ?? "Payment";
+
+  return {
+    icon,
+    title,
+    customer,
+    amount: formatUSD(tx.amount),
+    date: formatDateLabel(tx.date),
+  };
+}
 
 export const ExportOptionsSection = (): JSX.Element => {
+  const {
+    data: { transactions },
+  } = useAppData();
+console.log(transactions)
+  const items = transactions.map(mapTransaction);
+
   return (
-    <section className="flex flex-col items-start gap-6 w-full">
-      {transactions.map((transaction, index) => (
+    <section className="flex flex-col items-start gap-6 w-full mt-2">
+      {items.map((transaction, index) => (
         <div key={index} className="flex items-start gap-4 w-full">
           <div className="flex-shrink-0 w-12 h-12 bg-trashed-colorsjade100 rounded-3xl flex items-center justify-center">
             <img

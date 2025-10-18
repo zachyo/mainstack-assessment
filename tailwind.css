@@ -65,6 +65,11 @@
   --degular-headers-XX-small-font-weight: 700;
   --degular-headers-XX-small-letter-spacing: -0.600000023841858px;
   --degular-headers-XX-small-line-height: 38px;
+  --degular-paragraph-xl-small-font-family: "Degular", Helvetica;
+  --degular-paragraph-xl-small-font-size: 16px;
+  --degular-paragraph-xl-small-font-style: normal;
+  --degular-paragraph-xl-small-font-weight: 600;
+  --degular-paragraph-xl-small-letter-spacing: -0.20000000298023224px;
   --degular-paragraph-x-small-font-family: "Degular", Helvetica;
   --degular-paragraph-x-small-font-size: 16px;
   --degular-paragraph-x-small-font-style: normal;
