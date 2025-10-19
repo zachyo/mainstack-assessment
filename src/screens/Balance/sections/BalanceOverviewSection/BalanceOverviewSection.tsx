@@ -11,7 +11,7 @@ export const BalanceOverviewSection = (): JSX.Element => {
   const balanceText = formatCurrencyUSD(balance);
 
   return (
-    <section className="flex items-center gap-16 w-full">
+    <section className="flex items-center gap-16 w-full justify-between lg:justify-normal">
       <div className="flex flex-col items-start gap-2">
         <div className="font-degular-paragraph-XX-small font-[number:var(--degular-paragraph-XX-small-font-weight)] text-[#56616b] text-[length:var(--degular-paragraph-XX-small-font-size)] tracking-[var(--degular-paragraph-XX-small-letter-spacing)] leading-[var(--degular-paragraph-XX-small-line-height)] [font-style:var(--degular-paragraph-XX-small-font-style)]">
           Available Balance

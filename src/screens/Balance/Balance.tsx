@@ -54,9 +54,9 @@ export const Balance = (): JSX.Element => {
       <NavigationBarSection />
 
       <main className="flex-1 flex flex-col w-full container mt-10">
-        <div className="flex flex-col gap-6 p-6">
-          <div className="flex gap-20">
-            <div className="flex flex-col gap-3 w-10/12">
+        <div className="flex flex-col gap-6 py-6 lg:p-6">
+          <div className="flex flex-col lg:flex-row gap-20">
+            <div className="flex flex-col gap-3 lg:w-10/12">
               <BalanceOverviewSection />
               <ChartSection />
             </div>

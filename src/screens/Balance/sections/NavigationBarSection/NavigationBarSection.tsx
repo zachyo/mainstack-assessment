@@ -42,7 +42,7 @@ export const NavigationBarSection = (): JSX.Element => {
           src="/mainstack-logo.svg"
         />
 
-        <div className="flex items-center gap-5">
+        <div className="hidden lg:flex items-center gap-5">
           {navigationItems.map((item, index) => (
             <Button
               key={index}

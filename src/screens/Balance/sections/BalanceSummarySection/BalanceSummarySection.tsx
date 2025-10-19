@@ -38,7 +38,7 @@ export const BalanceSummarySection = (): JSX.Element => {
   ];
 
   return (
-    <section className="flex flex-col gap-8 w-[300px]">
+    <section className="flex flex-col gap-8 lg:w-[300px]">
       {metrics.map((metric, index) => (
         <div key={index} className="flex flex-col items-start gap-2.5">
           <div className="flex items-center gap-2 w-full">

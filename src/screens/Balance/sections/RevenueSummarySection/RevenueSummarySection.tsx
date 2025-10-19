@@ -15,7 +15,7 @@ export const RevenueSummarySection = ({ onOpenFilter }: FilterOptionsSectionProp
   const count = transactions.length;
 
   return (
-    <section className="flex w-full items-center gap-6 pb-6 border-b border-[#eff1f6] mt-12">
+    <section className="flex flex-col lg:flex-row w-full lg:items-center gap-6 pb-6 border-b border-[#eff1f6] mt-12">
       <div className="flex flex-col items-start flex-1">
         <h2 className="font-degular-headers-3x-small font-[number:var(--degular-headers-3x-small-font-weight)] text-[#131316] text-[length:var(--degular-headers-3x-small-font-size)] tracking-[var(--degular-headers-3x-small-letter-spacing)] leading-[var(--degular-headers-3x-small-line-height)] [font-style:var(--degular-headers-3x-small-font-style)]">
           {count} Transactions

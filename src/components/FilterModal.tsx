@@ -89,14 +89,14 @@ export function FilterModal({ open, onOpenChange, onApply }: FilterModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="fixed font-degular-paragraph-x-small right-6 top-6 left-auto h-[85vh] flex flex-col justify-between translate-x-0 translate-y-0 max-w-[496px] p-0 gap-0 data-[state=open]:animate-[slideInFromRight_0.3s_ease-out]">
+        <DialogContent className="fixed rounded-[20px] font-degular-paragraph-x-small right-6 top-6 left-auto h-[85vh] flex flex-col justify-between translate-x-0 translate-y-0 max-w-[calc(100vw-60px)] lg:max-w-[496px] p-0 gap-0 data-[state=open]:animate-[slideInFromRight_0.3s_ease-out]">
         <div className="">
           <DialogHeader className="px-6 py-6 pb-4">
-            <DialogTitle className="text-2xl font-bold">Filter</DialogTitle>
+            <DialogTitle className="text-2xl font-bold text-left">Filter</DialogTitle>
           </DialogHeader>
 
           <div className="px-6 p-6 space-y-7">
-            <div className="flex gap-3">
+            <div className="flex gap-3 flex-wrap">
               {QUICK_FILTERS.map((filter) => (
                 <button
                   key={filter}
