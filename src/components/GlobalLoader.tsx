@@ -1,10 +1,6 @@
-import React from "react";
 import { useAppData } from "../context/AppDataContext";
 
-/**
- * GlobalLoader shows a simple overlay while initial app data is loading.
- * It relies on AppDataContext's isLoading flag.
- */
+
 export const GlobalLoader = (): JSX.Element | null => {
   const { isLoading } = useAppData();
 
