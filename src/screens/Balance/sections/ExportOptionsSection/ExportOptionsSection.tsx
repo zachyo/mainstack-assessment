@@ -1,6 +1,8 @@
 import { useAppData } from "../../../../context/AppDataContext";
 import type { Transaction } from "../../../../types/api";
 import { formatDateLabel } from "../../../../lib/format";
+import { MoveDownLeft, MoveUpRight } from "lucide-react";
+import { cn } from "../../../../lib/utils";
 
 function toStartCase(input: string): string {
   return input
@@ -22,18 +24,12 @@ function formatUSD(amount: number): string {
 
 function mapTransaction(tx: Transaction) {
   const isWithdrawal = tx.type === "withdrawal";
-  const typeUi = isWithdrawal
-    ? "withdrawal"
-    : tx.status === "pending"
-    ? "pending"
-    : "success";
 
-  const icon =
-    typeUi === "withdrawal"
-      ? "/call-received-1.svg"
-      : typeUi === "pending"
-      ? "/call-received-2.svg"
-      : "/call-received.svg";
+  const icon = isWithdrawal ? (
+    <MoveUpRight color="#961100" className="w-5 h-5" strokeWidth={1} />
+  ) : (
+    <MoveDownLeft className="w-5 h-5" color="#075132" strokeWidth={1} />
+  );
 
   const title = isWithdrawal
     ? "Cash withdrawal"
@@ -53,6 +49,7 @@ function mapTransaction(tx: Transaction) {
     customer,
     amount: formatUSD(tx.amount),
     date: formatDateLabel(tx.date),
+    type: isWithdrawal ? "withdrawal" : "deposit",
   };
 }
 
@@ -61,17 +58,19 @@ export const ExportOptionsSection = (): JSX.Element => {
     data: { transactions },
   } = useAppData();
   const items = transactions.map(mapTransaction);
+  console.log({ transactions, items });
 
   return (
     <section className="flex flex-col items-start gap-6 w-full mt-2">
       {items.map((transaction, index) => (
         <div key={index} className="flex items-start gap-4 w-full">
-          <div className="flex-shrink-0 w-12 h-12 bg-trashed-colorsjade100 rounded-3xl flex items-center justify-center">
-            <img
-              className="w-5 h-5"
-              alt="Call received"
-              src={transaction.icon}
-            />
+          <div
+            className={cn(
+              "flex-shrink-0 w-12 h-12 rounded-3xl flex items-center justify-center",
+              transaction.type === "deposit" ? "bg-trashed-colorsjade100" : "bg-[#F9E3E0]"
+            )}
+          >       
+            {transaction.icon}
           </div>
 
           <div className="flex flex-col flex-1 gap-1 min-w-0">

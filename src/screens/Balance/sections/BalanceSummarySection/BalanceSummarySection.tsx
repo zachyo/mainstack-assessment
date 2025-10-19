@@ -23,17 +23,17 @@ export const BalanceSummarySection = (): JSX.Element => {
     {
       label: "Total Payout",
       value: formatUSD2dp(wallet?.total_payout ?? 0),
-      icon: "/info-3.svg",
+      icon: "/info.svg",
     },
     {
       label: "Total Revenue",
       value: formatUSD2dp(wallet?.total_revenue ?? 0),
-      icon: "/info-2.svg",
+      icon: "/info.svg",
     },
     {
       label: "Pending Payout",
       value: formatUSD2dp(wallet?.pending_payout ?? 0),
-      icon: "/info-1.svg",
+      icon: "/info.svg",
     },
   ];
 

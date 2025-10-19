@@ -89,7 +89,7 @@ export function FilterModal({ open, onOpenChange, onApply }: FilterModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="fixed font-degular-paragraph-x-small right-6 top-6 left-auto h-[90vh] flex flex-col justify-between translate-x-0 translate-y-0 max-w-[496px] p-0 gap-0 data-[state=open]:slide-in-from-top-2 data-[state=open]:slide-in-from-right-2 data-[state=closed]:slide-out-to-top-2 data-[state=closed]:slide-out-to-right-2">
+        <DialogContent className="fixed font-degular-paragraph-x-small right-6 top-6 left-auto h-[85vh] flex flex-col justify-between translate-x-0 translate-y-0 max-w-[496px] p-0 gap-0 data-[state=open]:animate-[slideInFromRight_0.3s_ease-out]">
         <div className="">
           <DialogHeader className="px-6 py-6 pb-4">
             <DialogTitle className="text-2xl font-bold">Filter</DialogTitle>

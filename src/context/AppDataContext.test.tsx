@@ -2,7 +2,6 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { test, expect, vi } from 'vitest';
 import { AppDataProvider, useAppData } from './AppDataContext';
 import * as api from '../services/api';
-import { act } from 'react';
 
 // Mock the API functions
 vi.mock('../services/api', () => ({
