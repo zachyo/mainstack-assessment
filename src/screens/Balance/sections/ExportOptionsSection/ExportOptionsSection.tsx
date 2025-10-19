@@ -58,7 +58,6 @@ export const ExportOptionsSection = (): JSX.Element => {
     data: { transactions },
   } = useAppData();
   const items = transactions.map(mapTransaction);
-  console.log({ transactions, items });
 
   return (
     <section className="flex flex-col items-start gap-6 w-full mt-2">
