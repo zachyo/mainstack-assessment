@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { getUser, getWallet, getTransactions } from "../services/api";
-import type { AppData, User, Wallet, Transaction } from "../types/api";
+import type { AppData } from "../types/api";
 
 type AppDataState = {
   data: AppData;

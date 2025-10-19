@@ -60,7 +60,6 @@ export const ExportOptionsSection = (): JSX.Element => {
   const {
     data: { transactions },
   } = useAppData();
-console.log(transactions)
   const items = transactions.map(mapTransaction);
 
   return (
