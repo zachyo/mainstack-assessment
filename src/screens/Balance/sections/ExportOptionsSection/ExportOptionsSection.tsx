@@ -1,4 +1,3 @@
-import React from "react";
 import { useAppData } from "../../../../context/AppDataContext";
 import type { Transaction } from "../../../../types/api";
 import { formatDateLabel } from "../../../../lib/format";
